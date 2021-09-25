@@ -1,0 +1,108 @@
+#include "libreria.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+int menu(){
+    int opcion;
+
+    printf("        *****************************\n");
+    printf("        *****************************\n");
+    printf("        ********-CALCULADORA-********\n");
+    printf("        *****************************\n");
+    printf("        *****************************\n");
+    printf(" 1. Ingresar primer operando\n");
+    printf(" 2. Ingresar segundo operando\n");
+    printf(" 3. Calcular todas las operaciones\n");
+    printf("          Calcular  suma (a + b) \n");
+    printf("          Calcular  resta (a - b)\n");
+    printf("          Calcular  multiplicacion (a * b)\n");
+    printf("          Calcular  division (a/b)\n");
+    printf("          Calcular  factorial (a!)\n");
+    printf(" 4. Informar las respuestas  \n");
+    printf(" 5. para salir \n");
+    scanf("%d", &opcion);
+    return opcion;
+
+}
+
+void FlagTrue (int* f)
+{
+	if(f != NULL)
+	{
+	*f = 1;
+	}
+}
+
+void informe(float a, float b, float c, float d, float e, float f, int g, float h, float i)
+{
+    printf("..............Informe de las operaciones realizadas .................\n");
+    printf("          El resultado de la operacion %.2f + %.2f es %.2f\n",h, i, a);
+    printf("          El resultado de la operacion %.2f - %.2f es %.2f\n",h, i, b);
+    printf("          El resultado de la operacion %.2f * %.2f es %.2f\n",h, i, c);
+    if(g == 0)
+    {
+        printf("          El resultado de la operacion %.2f / %.2f es %.2f\n",h ,i , d);
+    } else
+    {
+        printf("          No se puede dividir por cero\n");
+    }
+    printf("          El resultado de la operacion (%.2f!) es %.2f y de (%.2f!) es %.2f\n",h, e ,i ,  f);
+
+}
+
+void suma(float a, float b, float *c)
+{
+    if(c != NULL)
+    {
+        *c = a + b;
+    }
+
+}
+void resta(float a, float b, float *c)
+{
+    if(c != NULL)
+    {
+    *c = a - b;
+    }
+
+}
+void multiplicacion(float a, float b, float *c)
+{
+    if(c != NULL)
+    {
+    *c = a * b;
+    }
+
+}
+int division(float a, float b, float *c)
+{
+    int retorno = 1;
+    if(b != 0 && c != NULL)
+    {
+    * c= a / b;
+    retorno = 0;
+    }
+    return retorno;
+}
+void factorial(float a, float *b)
+{
+    int fact = 1;
+    if(b != NULL)
+    {
+    for(int i=1; i <= a; i++)
+    {
+        fact *= i;
+    }
+    *b = (float) fact;
+
+    }
+
+}
+
+void FlagFalse (int* f)
+{
+	if(f != NULL)
+	{
+	*f = 0;
+	}
+}
